@@ -98,6 +98,7 @@
    svg {
      fill: var(--green);
      background-color: var(--dark);
+     padding-top: -10px;
      display: block;
      position: sticky;
      border-radius: 100%; 

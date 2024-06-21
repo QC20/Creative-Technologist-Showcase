@@ -2,9 +2,6 @@
 
 
 What projects can go into this site?
-- Q-Learning (https://github.com/QC20/Q-Learning-Game-Tower-of-Hanoi)
-- Game of life (https://github.com/QC20/game-of-life-simulation)
-- ASCII (https://github.com/QC20/AsciiVision)
 - Floating Sphere (https://github.com/QC20/floating-sphere)
 - Wavebreaker (https://github.com/QC20/Wavebreaker)
 - XAI ideas maybe multiple (https://github.com/QC20/Teach-XAI-with-P5.js)
