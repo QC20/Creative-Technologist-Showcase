@@ -76,19 +76,19 @@
    }
    
    h2 {
-     width: 330px;
-     height: 70px;
-     padding-top: -15px;
+     width: 380px;
+     height: 90px;
+     padding-top: -10px;
      font-family: 'Modak', cursive;
-     font-size: 50px;
+     font-size: 55px;
      background-color: var(--orange);
      border: var(--boxborder) solid var(--dark); 
    }
    h3 {
      width: 200px;
-     padding-top: 10px;
+     padding-top: -10px;
      font-family: 'Modak', cursive;
-     font-size: 40px;
+     font-size: 50px;
      background-color: var(--blue);
      border: var(--boxborder) solid var(--dark); 
    }
@@ -104,9 +104,9 @@
    }
    li > div {
      background-color: var(--green);
-     width: 180px;
+     width: 340px;
      padding: 10px;
-     font-family: 'Carter One', cursive; font-size: 14px;
+     font-family: 'Carter One', cursive; font-size: 20px;
      border: var(--boxborder) solid var(--dark); 
    }
    p {
