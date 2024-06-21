@@ -3,7 +3,6 @@
 
 What projects can go into this site?
 - etch a sketch (https://github.com/QC20/non-cartesian-etch-a-sketch)
-- Crashing Squares (https://github.com/QC20/Crashing-Squares-Website)
 - Upperhand (https://github.com/QC20/upperhand-novel-ui-method-for-web)
 - Q-Learning (https://github.com/QC20/Q-Learning-Game-Tower-of-Hanoi)
 - Game of life (https://github.com/QC20/game-of-life-simulation)
