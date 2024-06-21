@@ -42,6 +42,7 @@
    
    .anarchy {
      position: absolute;
+     display: block;
      visibility: hidden;
    }
    img {
@@ -65,8 +66,8 @@
      border: var(--boxborder) solid var(--dark); 
    }
    h1 {
-     width: 320px;
-     height: 140px;
+     width: 700px;
+     height: 120px;
      padding-top: 10px;
      font-family: 'Modak', cursive;
      font-size: 70px;
@@ -75,9 +76,9 @@
    }
    
    h2 {
-     width: 150px;
-     height: 100px;
-     padding-top: 10px;
+     width: 330px;
+     height: 70px;
+     padding-top: -15px;
      font-family: 'Modak', cursive;
      font-size: 50px;
      background-color: var(--orange);
@@ -95,9 +96,10 @@
      width: 240px;
    }
    svg {
-     fill: var(--red);
+     fill: var(--green);
      background-color: var(--dark);
      display: block;
+     position: sticky;
      border-radius: 100%; 
    }
    li > div {
