@@ -2,7 +2,6 @@
 
 
 What projects can go into this site?
-- Wavebreaker (https://github.com/QC20/Wavebreaker)
 - XAI ideas maybe multiple (https://github.com/QC20/Teach-XAI-with-P5.js)
 - Pong Game (https://github.com/QC20/p5.js-PongGame)
 - Solar System (https://github.com/QC20/Solar-System)
