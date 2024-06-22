@@ -5,16 +5,22 @@ var Engine = Matter.Engine,
     Body = Matter.Body,
     Bodies = Matter.Bodies;
 
-var worldW = window.innerWidth;
-var worldH = window.innerHeight;
-
+// Initialize variables
 var engine;
 var render;
+var balls = []; // Array to store all physics balls including webcam ball
+var walls = [];
+var ground;
+var ceiling;
+var hBlocks = document.getElementsByClassName("anarchy");
+var pageWidth = 0;
+var videoElement;
 
 // bodies
 var blocks = [];
 var walls = [];
 var ground;
+var ceiling;
 
 // DOM elements
 var hBlocks = document.getElementsByClassName("anarchy");
@@ -23,6 +29,22 @@ var pageWidth = 0;
 
 window.onload = function() {
   pageWidth = window.innerWidth;
+  
+  // Request access to the webcam
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function(stream) {
+      var videoElement = document.createElement('video');
+      videoElement.srcObject = stream;
+      videoElement.play();
+
+      var mirrorBall = document.getElementById('mirrorBall');
+      mirrorBall.appendChild(videoElement);
+
+      videoElement.classList.add('mirror-video');
+    })
+    .catch(function(err) {
+      console.log("An error occurred: " + err);
+    });
 };
 
 window.onresize = function() {
@@ -101,11 +123,18 @@ function setup() {
       startHeight += 10000;
     }
     if (hBlocks[i].classList.contains("ball")) {
+      // Create a ball with mirror effect
+      var ballElement = document.createElement('div');
+      ballElement.classList.add('mirror-ball');
+      ballElement.id = 'mirrorBall';
+      hBlocks[i].appendChild(ballElement);
+      
       blocks.push(new Ball(window.innerWidth / 2, startHeight, hBlocks[i].offsetWidth / 2));
     } else if (hBlocks[i].classList.contains("block")) {
       blocks.push(new Box(window.innerWidth / 2, startHeight, hBlocks[i].offsetWidth, hBlocks[i].offsetHeight));
     }
   }
+
   ground = Bodies.rectangle(10000, -50, 20000, 100, { isStatic: true });
   ceiling = Bodies.rectangle(10000, 40050, 20000, 100, { isStatic: true });
   walls[0] = Bodies.rectangle(-50, 20000, 100, 40000, { isStatic: true });

@@ -133,3 +133,16 @@ li > div {
 p {
   margin-bottom: 10px;
 }
+
+/* Additional CSS for circular video element */
+.mirror-ball {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 50%; /* This creates a circular shape */
+}
+
+.mirror-video {
+  width: 100%; /* Adjust to fit within the circular container */
+  height: 100%; /* Adjust to fit within the circular container */
+  object-fit: cover; /* Ensures the video covers the entire circular area */
+}
