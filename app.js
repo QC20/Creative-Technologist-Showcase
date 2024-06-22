@@ -88,17 +88,17 @@ function setup() {
     if (hBlocks[i].classList.contains("prio1")) {
       startHeight += 500;
     } else if (hBlocks[i].classList.contains("prio2")) {
-      startHeight += 1500;
+      startHeight += 3000;
     } else if (hBlocks[i].classList.contains("prio3")) {
-      startHeight += 2500;
+      startHeight += 5000;
     } else if (hBlocks[i].classList.contains("prio4")) {
-      startHeight += 3500;
+      startHeight += 6000;
     } else if (hBlocks[i].classList.contains("prio5")) {
-      startHeight += 4500;
+      startHeight += 7000;
     } else if (hBlocks[i].classList.contains("prio6")) {
-      startHeight += 5500;
+      startHeight += 8000;
     } else {
-      startHeight += 6500;
+      startHeight += 10000;
     }
     if (hBlocks[i].classList.contains("ball")) {
       blocks.push(new Ball(window.innerWidth / 2, startHeight, hBlocks[i].offsetWidth / 2));
