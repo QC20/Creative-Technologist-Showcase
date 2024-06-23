@@ -29,7 +29,7 @@ var pageWidth = 0;
 
 window.onload = function() {
   pageWidth = window.innerWidth;
-  
+/*
   // Request access to the webcam
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(function(stream) {
@@ -45,6 +45,7 @@ window.onload = function() {
     .catch(function(err) {
       console.log("An error occurred: " + err);
     });
+    */
 };
 
 window.onresize = function() {
@@ -89,6 +90,8 @@ function Ball(x, y, r) {
   World.add(engine.world, [this.body]);
 }
 
+
+
 function setup() {
   engine = Engine.create();
   engine.world.gravity.y = -0.5;
@@ -112,7 +115,7 @@ function setup() {
     } else if (hBlocks[i].classList.contains("prio2")) {
       startHeight += 3000;
     } else if (hBlocks[i].classList.contains("prio3")) {
-      startHeight += 5000;
+      startHeight += 5500;
     } else if (hBlocks[i].classList.contains("prio4")) {
       startHeight += 6000;
     } else if (hBlocks[i].classList.contains("prio5")) {
