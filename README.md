@@ -27,6 +27,8 @@ What projects can go into this site?
 
 ## matter.js thingds
 - osterhap falder fra himlen: https://codepen.io/Marco-Ahlers/pen/PoxrEzm
+- Super cool lille mini game: https://github.com/TomboFry/suika-game
+- https://github.com/msmykowski/basketball-game-matter.js
 
 
 ## Super cool three.js things
