@@ -4,7 +4,7 @@
   --blue: #2EC4B6;
   --paleblue: #80A1C1;
   --green: #3D7A3B;
-  --cream: #F6D8AE;
+  --WhiteCream: #eeedeafd;
   --darkgrey: #252323;
   --dark: #011627;
   --light: #ACBDBA;
@@ -19,7 +19,7 @@ body {
 html {
   font-size: 0.8em;
   color: var(--dark);
-  background-color: var(--darkgrey);
+  background-color: var(--WhiteCream);
   text-align: center;
 }
 
