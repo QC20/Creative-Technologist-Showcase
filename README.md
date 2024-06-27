@@ -1,4 +1,5 @@
 # Creative-Web-Dev
+XP loading screen: https://codepen.io/duptitung/pen/XMVNyZ
 
 Better ball design: https://codepen.io/danyellageorgieva/pen/JjvEEEX
 
@@ -11,6 +12,64 @@ What projects can go into this site?
 - Interactive Raindrops (https://github.com/QC20/Interactive-Raindrops)
 
 - stickman maybe
+
+
+
+
+# Text manipiulation:s
+- Glithy text: https://codepen.io/fabiowallner/pen/ozZoYo
+- Fluid text hover: https://codepen.io/robin-dela/pen/KKPYoBq
+- Random text shuffle: https://codepen.io/SaschaSigl/pen/woGYKJ
+- Text animation: https://codepen.io/yoannhel/pen/DMzjog
+- text scramble effect: https://codepen.io/soulwire/pen/mEMPrK
+- Floating text: https://codepen.io/SaschaSigl/pen/VmPrwJ
+
+
+
+# Box
+- box border animation: https://codepen.io/Inderpreet23/pen/MevReq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Particle (NEW ID)
+- Particle Screen: https://codepen.io/VincentGarreau/pen/bGxvQd
+- Particle text: https://codepen.io/birjolaxew/pen/nbvWpj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
