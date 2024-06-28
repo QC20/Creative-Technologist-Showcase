@@ -24,7 +24,19 @@ What projects can go into this site?
 - text scramble effect: https://codepen.io/soulwire/pen/mEMPrK
 - Floating text: https://codepen.io/SaschaSigl/pen/VmPrwJ
 
-
+# p5 things
+- spider thingy: https://codepen.io/Alca/pen/BWMWeq
+- https://codepen.io/enxaneta/pen/NpOeNJ
+- https://codepen.io/xdesro/pen/LvGEWb
+- mouser trCKER: https://codepen.io/isoden/pen/xRpQMO
+- Circles and arcs: https://codepen.io/eilseq/pen/gqMyPx
+- https://codepen.io/slow_izzm/pen/xMYejK
+- https://codepen.io/enxaneta/pen/WxRavG
+- https://codepen.io/tsuhre/pen/xgmEPe
+- https://codepen.io/Mertl/pen/ZqoMWK
+- mesh noise: https://codepen.io/derekmorash/pen/VdgGXZ
+- cirvuit borad warper: https://codepen.io/DonKarlssonSan/pen/aWOppR
+- deformation: https://codepen.io/Mertl/pen/pxQzWb
 
 # Box
 - box border animation: https://codepen.io/Inderpreet23/pen/MevReq
