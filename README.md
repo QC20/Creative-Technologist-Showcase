@@ -13,3 +13,8 @@ What projects can go into this site?
 
 - stickman maybe
 
+
+
+## Next prompt
+
+it still does not work. I want the bodies to behave such that they are not able to collide with each other. Non of them should be able to collide with any other thing on screen. try again and print out the entire code

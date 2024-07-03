@@ -9,24 +9,13 @@ var Engine = Matter.Engine,
 // Initialize variables
 var engine;
 var render;
-var balls = []; // Array to store all physics balls including webcam ball
+var blocks = [];
 var walls = [];
 var ground;
 var ceiling;
 var hBlocks = document.getElementsByClassName("anarchy");
 var pageWidth = 0;
 var videoElement;
-
-// bodies
-var blocks = [];
-var walls = [];
-var ground;
-var ceiling;
-
-// DOM elements
-var hBlocks = document.getElementsByClassName("anarchy");
-
-var pageWidth = 0;
 
 window.onload = function() {
   pageWidth = window.innerWidth;
@@ -42,7 +31,7 @@ window.onresize = function() {
   pageWidth = newpageWidth;
 };
 
-function Box(x, y, w, h) {
+function createBody(x, y, w, h, isCircle) {
   var options = {
     density: 0.01,
     friction: 0.5,
@@ -53,26 +42,18 @@ function Box(x, y, w, h) {
     },
     chamfer: { radius: 5 }
   };
-  this.body = Bodies.rectangle(x, y, w, h, options);
+  
+  var body;
+  if (isCircle) {
+    body = Bodies.circle(x, y, w / 2, options);
+  } else {
+    body = Bodies.rectangle(x, y, w, h, options);
+  }
+  
   var xVel = 5 * Math.random() - 2.5;
-  Body.setVelocity(this.body, { x: xVel, y: 0 });
-  World.add(engine.world, [this.body]);
-}
-
-function Ball(x, y, r) {
-  var options = {
-    density: 0.01,
-    friction: 0.5,
-    restitution: 0.2,
-    collisionFilter: {
-      category: 0x0001,
-      mask: 0xFFFFFFFF
-    }
-  };
-  this.body = Bodies.circle(x, y, r, options);
-  var xVel = 5 * Math.random() - 2.5;
-  Body.setVelocity(this.body, { x: xVel, y: 0 });
-  World.add(engine.world, [this.body]);
+  Body.setVelocity(body, { x: xVel, y: 0 });
+  World.add(engine.world, [body]);
+  return body;
 }
 
 function setup() {
@@ -114,17 +95,17 @@ function setup() {
     } else {
       startHeight += 10000;
     }
-    if (hBlocks[i].classList.contains("ball")) {
-      // Create a ball with mirror effect
-      var ballElement = document.createElement('div');
-      ballElement.classList.add('mirror-ball');
-      ballElement.id = 'mirrorBall';
-      hBlocks[i].appendChild(ballElement);
-      
-      blocks.push(new Ball(window.innerWidth / 2, startHeight, hBlocks[i].offsetWidth / 2));
-    } else if (hBlocks[i].classList.contains("block")) {
-      blocks.push(new Box(window.innerWidth / 2, startHeight, hBlocks[i].offsetWidth, hBlocks[i].offsetHeight));
-    }
+    
+    var isCircle = hBlocks[i].classList.contains("ball");
+    var body = createBody(
+      window.innerWidth / 2, 
+      startHeight, 
+      hBlocks[i].offsetWidth, 
+      hBlocks[i].offsetHeight,
+      isCircle
+    );
+    
+    blocks.push({ body: body, element: hBlocks[i] });
   }
 
   var wallOptions = { 
@@ -171,10 +152,11 @@ draw();
 
   Body.setPosition(walls[1], { x: document.body.clientWidth + 50, y: 0 });
   for (var i = 0; i < blocks.length; i++) {
-    var xTrans = blocks[i].body.position.x - hBlocks[i].offsetWidth / 2;
-    var yTrans = blocks[i].body.position.y - hBlocks[i].offsetHeight / 2;
-    hBlocks[i].style.transform = "translate(" + xTrans + "px, " + yTrans + "px) rotate(" + blocks[i].body.angle + "rad)";
-    hBlocks[i].style.visibility = "visible";
+    var block = blocks[i];
+    var xTrans = block.body.position.x - block.element.offsetWidth / 2;
+    var yTrans = block.body.position.y - block.element.offsetHeight / 2;
+    block.element.style.transform = "translate(" + xTrans + "px, " + yTrans + "px) rotate(" + block.body.angle + "rad)";
+    block.element.style.visibility = "visible";
   }
   window.requestAnimationFrame(render);
 })();
