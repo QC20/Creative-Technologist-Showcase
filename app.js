@@ -3,8 +3,8 @@ var Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
     Body = Matter.Body,
-    Bodies = Matter.Bodies;
-    
+    Bodies = Matter.Bodies,
+    Common = Matter.Common;
 
 // Initialize variables
 var engine;
@@ -30,23 +30,6 @@ var pageWidth = 0;
 
 window.onload = function() {
   pageWidth = window.innerWidth;
-/*
-  // Request access to the webcam
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function(stream) {
-      var videoElement = document.createElement('video');
-      videoElement.srcObject = stream;
-      videoElement.play();
-
-      var mirrorBall = document.getElementById('mirrorBall');
-      mirrorBall.appendChild(videoElement);
-
-      videoElement.classList.add('mirror-video');
-    })
-    .catch(function(err) {
-      console.log("An error occurred: " + err);
-    });
-    */
 };
 
 window.onresize = function() {
@@ -61,41 +44,46 @@ window.onresize = function() {
 
 function Box(x, y, w, h) {
   var options = {
-    density: 0.0005,
+    density: 0.01,
     friction: 0.5,
-    restitution: 0.7,
+    restitution: 0.2,
     collisionFilter: {
       category: 0x0001,
-      mask: 0x0001
-    }
+      mask: 0xFFFFFFFF
+    },
+    chamfer: { radius: 5 }
   };
   this.body = Bodies.rectangle(x, y, w, h, options);
-  var xVel = 10 * Math.random() - 5;
+  var xVel = 5 * Math.random() - 2.5;
   Body.setVelocity(this.body, { x: xVel, y: 0 });
   World.add(engine.world, [this.body]);
 }
 
 function Ball(x, y, r) {
   var options = {
-    density: 0.0005,
+    density: 0.01,
     friction: 0.5,
-    restitution: 0.7,
+    restitution: 0.2,
     collisionFilter: {
       category: 0x0001,
-      mask: 0x0001
+      mask: 0xFFFFFFFF
     }
   };
   this.body = Bodies.circle(x, y, r, options);
-  var xVel = 10 * Math.random() - 5;
+  var xVel = 5 * Math.random() - 2.5;
   Body.setVelocity(this.body, { x: xVel, y: 0 });
   World.add(engine.world, [this.body]);
 }
 
-
-
 function setup() {
   engine = Engine.create();
   engine.world.gravity.y = -0.5;
+  engine.world.gravity.scale = 0.001;
+  engine.world.bounds.max.y = 40000;
+  engine.world.bounds.max.x = 20000;
+
+  // Increase default stiffness
+  engine.world.constraintIterations = 10;
 
   render = Render.create({
     element: document.body,
@@ -139,10 +127,20 @@ function setup() {
     }
   }
 
-  ground = Bodies.rectangle(10000, -50, 20000, 100, { isStatic: true });
-  ceiling = Bodies.rectangle(10000, 40050, 20000, 100, { isStatic: true });
-  walls[0] = Bodies.rectangle(-50, 20000, 100, 40000, { isStatic: true });
-  walls[1] = Bodies.rectangle(window.innerWidth + 50, 20000, 100, 40000, { isStatic: true });
+  var wallOptions = { 
+    isStatic: true, 
+    restitution: 0.2,
+    friction: 0.5,
+    collisionFilter: {
+      category: 0x0001,
+      mask: 0xFFFFFFFF
+    }
+  };
+
+  ground = Bodies.rectangle(10000, -50, 20000, 100, wallOptions);
+  ceiling = Bodies.rectangle(10000, 40050, 20000, 100, wallOptions);
+  walls[0] = Bodies.rectangle(-50, 20000, 100, 40000, wallOptions);
+  walls[1] = Bodies.rectangle(window.innerWidth + 50, 20000, 100, 40000, wallOptions);
   
   World.add(engine.world, [ground, ceiling, walls[0], walls[1]]);
 }
@@ -156,6 +154,21 @@ draw();
 
 (function render() {
   Engine.update(engine, 1000 / 60);
+  
+  // Separate overlapping bodies
+  var pairs = engine.world.pairs.list;
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i];
+    Body.setPosition(pair.bodyA, {
+      x: pair.bodyA.position.x + pair.separation * pair.normal.x,
+      y: pair.bodyA.position.y + pair.separation * pair.normal.y
+    });
+    Body.setPosition(pair.bodyB, {
+      x: pair.bodyB.position.x - pair.separation * pair.normal.x,
+      y: pair.bodyB.position.y - pair.separation * pair.normal.y
+    });
+  }
+
   Body.setPosition(walls[1], { x: document.body.clientWidth + 50, y: 0 });
   for (var i = 0; i < blocks.length; i++) {
     var xTrans = blocks[i].body.position.x - hBlocks[i].offsetWidth / 2;
@@ -165,4 +178,3 @@ draw();
   }
   window.requestAnimationFrame(render);
 })();
-
