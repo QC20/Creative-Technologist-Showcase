@@ -9,13 +9,13 @@ var Engine = Matter.Engine,
 // Initialize variables
 var engine;
 var render;
-var balls = []; // Array to store all physics balls including webcam ball
+var balls = [];
 var walls = [];
 var ground;
 var ceiling;
+var blocks = [];
 var hBlocks = document.getElementsByClassName("anarchy");
 var pageWidth = 0;
-var videoElement;
 
 // bodies
 var blocks = [];
