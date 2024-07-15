@@ -35,7 +35,8 @@ What projects can go into this site?
 
 
 
-
+# generative map
+- https://codepen.io/piksl/pen/EaxJxX
 
 
 
@@ -54,6 +55,18 @@ What projects can go into this site?
 
 
 
+# website gallery
+- https://codepen.io/nsom/pen/VbqLew
+- carousel gallery: https://codepen.io/dudleystorey/details/DvZjLz
+- Accordian gallery: https://codepen.io/stefcharle/pen/Gydvbx
+- Locomotive Scroll: https://codepen.io/sfi0zy/pen/PoGvYyy
+- screensaver: https://codepen.io/hexagoncircle/pen/povGMod
+
+
+
+
+# Slack loader
+- https://codepen.io/CrocoDillon/pen/DMNWjR
 
 
 
@@ -62,9 +75,8 @@ What projects can go into this site?
 
 
 
-
-
-
+# p5.js things
+- https://codepen.io/maciekmaciej/pen/GjmXKP
 
 
 
