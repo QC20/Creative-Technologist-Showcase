@@ -15,6 +15,7 @@ What projects can go into this site?
 
 
 
+## Next prompt
 
 # Text manipiulation:s
 - Glithy text: https://codepen.io/fabiowallner/pen/ozZoYo

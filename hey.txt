@@ -244,3 +244,4 @@
           </li>
         </ul>
 
+There are several elements on this website like boxes with text in them and social media links. Can you make it so that non of them are able to collide with oneanother. They need to be unable to overlap and collide in any way. You have already helped earlier to make the boxes with links in them unable to collide and now I want you to do that for everything one the website.
