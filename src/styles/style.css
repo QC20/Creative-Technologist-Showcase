@@ -1,10 +1,11 @@
 :root{
-  --orange: #FF9F1C;
-  --red: #E71D36;
-  --blue: #2EC4B6;
+  --MainText: #bb78786c;
+  --SecondText:#c5040417;
+  --red: #fd6274;
+  --blue: #547975;
   --paleblue: #80A1C1;
   --green: #3D7A3B;
-  --WhiteCream: #d8d8d8;
+  --WhiteCream: #a181814d;
   --darkgrey: #252323;
   --dark: #011627;
   --light: #ACBDBA;
@@ -58,20 +59,18 @@ img {
   width: 200px;
   height: 200px;
   display: block;
-  --mask: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M199.178 99.589C199.178 165.982 165.982 199.179 99.5893 199.179C33.1963 199.179 0 165.982 0 99.589C0 33.1964 33.1963 0 99.5893 0C165.982 0 199.178 33.1964 199.178 99.589Z' fill='black'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
+  border-radius: 100%;
   border: var(--ballborder) solid var(--red); 
 }
 
 .photo img {
   width: 120px;
   height: 120px;
-  border: var(--ballborder) solid var(--orange); 
+  border: var(--ballborder) solid var(--SecondText); 
 }
 
 #intro {
-  background-color: var(--orange);
+  background-color: var(--SecondText);
   font-size: 18px;
   width: 180px;
   padding: 10px;
@@ -87,7 +86,7 @@ h1 {
   padding-top: 10px;
   font-family: 'Oxygen', 'Segoe UI', sans-serif;
   font-size: 70px;
-  background-color: var(--orange);
+  background-color: var(--MainText);
   border: var(--boxborder) solid var(--dark);
   border-radius: 55px; /* Adjust the radius as per your preference */
 }
@@ -99,7 +98,7 @@ h2 {
   padding-top: 00px;
   font-family: 'Oxygen', 'Segoe UI', sans-serif;
   font-size: 40px;
-  background-color: var(--orange);
+  background-color: var(--SecondText);
   border: var(--boxborder) solid var(--dark); 
   border-radius: 75px; 
 }
@@ -119,7 +118,7 @@ h3 {
 }
 
 svg {
-  fill: var(--green);
+  fill: var(--red);
   background-color: var(--dark);
   padding-top: -10px;
   display: block;
